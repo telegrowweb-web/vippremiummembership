@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,17 +13,14 @@ body{font-family:"Nunito",sans-serif;background:#eef0f3;color:#1a1a1a;min-height
 .brand span{color:#f97316}
 .secure-badge{display:flex;align-items:center;gap:5px;font-size:10px;color:#15803d;font-weight:700;background:#f0fdf4;padding:5px 10px;border-radius:30px;border:1px solid #bbf7d0}
 
-/* MOBILE: single column, order via order property */
 .wrap{width:100%;padding:14px 12px 32px;display:flex;flex-direction:column;gap:14px}
 
-/* DESKTOP: two column grid */
 @media(min-width:768px){
   .wrap{display:grid!important;grid-template-columns:38% 1fr;gap:0 20px;padding:24px 28px 48px;align-items:start}
   .col-left{position:sticky;top:72px;display:flex;flex-direction:column;gap:14px;grid-column:1;grid-row:1/99}
   .col-right{grid-column:2;display:flex;flex-direction:column;gap:14px}
 }
 
-/* Mobile order */
 .block-creator{order:1}
 .block-plans{order:2}
 .block-payment-logos{order:3}
@@ -34,7 +28,6 @@ body{font-family:"Nunito",sans-serif;background:#eef0f3;color:#1a1a1a;min-height
 .block-features{order:5}
 .block-testi{order:6}
 
-/* CREATOR CARD */
 .creator-card{background:linear-gradient(150deg,#1e3a8a 0%,#1d4ed8 45%,#2563eb 75%,#3b82f6 100%);border-radius:20px;padding:20px 16px 18px;color:#fff;position:relative;overflow:hidden;box-shadow:0 12px 40px rgba(29,78,216,0.35)}
 .creator-card::before{content:"";position:absolute;top:-50px;right:-50px;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,0.06)}
 .creator-card::after{content:"";position:absolute;bottom:-35px;left:-35px;width:120px;height:120px;border-radius:50%;background:rgba(255,255,255,0.04)}
@@ -51,17 +44,10 @@ body{font-family:"Nunito",sans-serif;background:#eef0f3;color:#1a1a1a;min-height
 .live-lbl{font-size:10px;opacity:0.72;text-transform:uppercase;letter-spacing:1px;margin-bottom:2px;font-weight:700}
 .live-num{font-size:28px;font-weight:900;color:#4ade80;font-variant-numeric:tabular-nums;line-height:1.1}
 
-/* TRUST BADGES */
 .trust-row{display:flex;gap:8px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:2px}
 .trust-row::-webkit-scrollbar{display:none}
 .tbadge{display:flex;align-items:center;gap:5px;background:#fff;border:1px solid #e5e7eb;border-radius:30px;padding:7px 12px;font-size:10px;font-weight:800;color:#374151;white-space:nowrap;flex-shrink:0}
 
-/* PLANS */
-.plans-wrap{display:flex;flex-direction:column;gap:12px}
-.plans-toprow{display:flex;align-items:center;justify-content:space-between}
-.plans-h{font-size:17px;font-weight:900;color:#111;letter-spacing:-0.3px}
-.plans-badge{font-size:10px;color:#6b7280;background:#fff;padding:4px 12px;border-radius:20px;border:1px solid #e5e7eb;font-weight:700}
-.plan-list{display:flex;flex-direction:column;gap:10px}
 .plan-card{background:#fff;border-radius:16px;padding:16px 14px;display:flex;align-items:center;justify-content:space-between;gap:10px;border:2px solid transparent;position:relative;overflow:hidden;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,0.07);transition:all 0.2s}
 .plan-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(180deg,#f97316,#a855f7);border-radius:4px 0 0 4px}
 .plan-card.popular{border-color:#f97316;background:linear-gradient(135deg,#fffaf6,#fff)}
@@ -135,12 +121,7 @@ body{font-family:"Nunito",sans-serif;background:#eef0f3;color:#1a1a1a;min-height
   </div>
 </nav>
 
-<!-- MOBILE: flex column, order via CSS order property -->
-<!-- DESKTOP: two column grid via col-left / col-right wrappers -->
-
 <div class="wrap" id="mainWrap">
-
-  <!-- ===== LEFT COLUMN (desktop) / ordered blocks (mobile) ===== -->
 
   <!-- 1. CREATOR CARD -->
   <div class="block-creator">
@@ -165,7 +146,6 @@ body{font-family:"Nunito",sans-serif;background:#eef0f3;color:#1a1a1a;min-height
   <!-- 2. TRUST + PLANS -->
   <div class="block-plans">
     <div style="display:flex;flex-direction:column;gap:14px">
-      <!-- Trust badges -->
       <div class="trust-row">
         <div class="tbadge">🔒 256-bit SSL</div>
         <div class="tbadge">⚡ Instant Access</div>
@@ -173,34 +153,99 @@ body{font-family:"Nunito",sans-serif;background:#eef0f3;color:#1a1a1a;min-height
         <div class="tbadge">🇮🇳 India Trusted</div>
         <div class="tbadge">💬 24/7 Support</div>
       </div>
- 
-               <div class="plan-card" onclick="pay('https://onetapay.com/pp/MTkzMg==')">
-            <div class="pinfo">
-              <div class="pname">Yearly Plan</div>
-              <div class="pprice-row"><div class="pprice">₹ 1,999.00</div><div class="pdur">/ 12 Months</div></div>
-              <div class="plive"><div class="mdot"></div><span id="c2">0</span>&thinsp;members active</div>
-            </div>
-            <button class="buybtn" onclick="event.stopPropagation();pay('https://onetapay.com/pp/MTkzMg==')">Buy Now</button>
-          </div>
 
-          <div class="plan-card popular" onclick="pay('https://onetapay.com/pp/MTkzMw==')">
-            <div class="poptag">⭐ Most Popular</div>
-            <div class="star-rib">★</div>
-            <div class="pinfo" style="margin-top:16px">
-              <div class="pname" style="color:#f97316">Life Time</div>
-              <div class="pprice-row"><div class="pprice">₹  3,999.00</div><div class="pdur">/ Life time</div></div>
-              <div class="plive"><div class="mdot"></div><span id="c3">0</span>&thinsp;members active</div>
-            </div>
-            <button class="buybtn" style="margin-top:16px" onclick="event.stopPropagation();pay('https://onetapay.com/pp/MTkzMw==')">Buy Now</button>
-          </div>
+      <div class="plan-card" onclick="pay('https://onetapay.com/pp/MTkzMg==')">
+        <div class="pinfo">
+          <div class="pname">Yearly Plan</div>
+          <div class="pprice-row"><div class="pprice">₹ 1,999.00</div><div class="pdur">/ 12 Months</div></div>
+          <div class="plive"><div class="mdot"></div><span id="c2">0</span>&thinsp;members active</div>
+        </div>
+        <button class="buybtn" onclick="event.stopPropagation();pay('https://onetapay.com/pp/MTkzMg==')">Buy Now</button>
+      </div>
 
+      <div class="plan-card popular" onclick="pay('https://onetapay.com/pp/MTkzMw==')">
+        <div class="poptag">⭐ Most Popular</div>
+        <div class="star-rib">★</div>
+        <div class="pinfo" style="margin-top:16px">
+          <div class="pname" style="color:#f97316">Life Time</div>
+          <div class="pprice-row"><div class="pprice">₹ 3,999.00</div><div class="pdur">/ Life time</div></div>
+          <div class="plive"><div class="mdot"></div><span id="c3">0</span>&thinsp;members active</div>
+        </div>
+        <button class="buybtn" style="margin-top:16px" onclick="event.stopPropagation();pay('https://onetapay.com/pp/MTkzMw==')">Buy Now</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. PAYMENT LOGOS -->
+  <div class="block-payment-logos">
+    <div class="pay-card">
+      <div class="sec-txt">Guaranteed <span class="sg">safe</span> and <span class="so">secure</span> payment</div>
+      <div class="logo-carousel">
+        <div class="logo-track">
+          <div class="logo-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Paytm_Logo_%28standalone%29.svg/200px-Paytm_Logo_%28standalone%29.svg.png" height="18" alt="Paytm"></div>
+          <div class="logo-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Google_Pay_Logo.svg/200px-Google_Pay_Logo.svg.png" height="18" alt="GPay"></div>
+          <div class="logo-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/UPI-Logo-vector.svg/200px-UPI-Logo-vector.svg.png" height="18" alt="UPI"></div>
+          <div class="logo-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/MasterCard_Logo.svg/200px-MasterCard_Logo.svg.png" height="18" alt="MC"></div>
+          <div class="logo-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Paytm_Logo_%28standalone%29.svg/200px-Paytm_Logo_%28standalone%29.svg.png" height="18" alt="Paytm"></div>
+          <div class="logo-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Google_Pay_Logo.svg/200px-Google_Pay_Logo.svg.png" height="18" alt="GPay"></div>
+          <div class="logo-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/UPI-Logo-vector.svg/200px-UPI-Logo-vector.svg.png" height="18" alt="UPI"></div>
+          <div class="logo-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/MasterCard_Logo.svg/200px-MasterCard_Logo.svg.png" height="18" alt="MC"></div>
         </div>
       </div>
     </div>
   </div>
 
+  <!-- 4. DISCLAIMER -->
+  <div class="block-disclaimer">
+    <div class="disc-card">
+      <div class="ctitle">Description</div>
+      <div class="disc-inner">
+        <div class="dh">Disclaimer</div>
+        <p>Join our exclusive VIP premium membership to unlock premium features, expert insights, and high-value content designed to help you grow faster and smarter. <a href="#">Learn more</a></p>
+      </div>
+    </div>
+  </div>
 
-  
+  <!-- 5. FEATURES -->
+  <div class="block-features">
+    <div class="feat-grid">
+      <div class="fcard"><div class="ficon">📈</div><div class="fname">Live Signals</div><div class="fsub">Real-time alerts</div></div>
+      <div class="fcard"><div class="ficon">🎓</div><div class="fname">Education</div><div class="fsub">Expert sessions</div></div>
+      <div class="fcard"><div class="ficon">💬</div><div class="fname">VIP Group</div><div class="fsub">Private Telegram</div></div>
+      <div class="fcard"><div class="ficon">🔒</div><div class="fname">Secure Pay</div><div class="fsub">256-bit SSL</div></div>
+    </div>
+  </div>
+
+  <!-- 6. TESTIMONIALS -->
+  <div class="block-testi">
+    <div class="testi">
+      <div class="sec-hd">What Members Say</div>
+      <div class="t-outer">
+        <div class="t-track" id="tTrack">
+          <div class="t-slide">
+            <div class="t-stars">★★★★★</div>
+            <div class="t-text">"Signals are incredibly accurate. Made ₹42,000 profit in my very first month! Best trading community I have ever joined."</div>
+            <div class="t-auth">— Ravi K., Mumbai</div>
+          </div>
+          <div class="t-slide">
+            <div class="t-stars">★★★★★</div>
+            <div class="t-text">"Education content is worth 10x the price. Went from a complete beginner to confidently trading in just 3 months!"</div>
+            <div class="t-auth">— Priya S., Delhi</div>
+          </div>
+          <div class="t-slide">
+            <div class="t-stars">★★★★★</div>
+            <div class="t-text">"Always responsive in the VIP group. Live weekend sessions are extremely valuable. Everyone should join this community!"</div>
+            <div class="t-auth">— Aakash T., Pune</div>
+          </div>
+          <div class="t-slide">
+            <div class="t-stars">★★★★★</div>
+            <div class="t-text">"Yearly plan is the best value for money. Consistent signals, excellent support. Totally worth every single rupee!"</div>
+            <div class="t-auth">— Suman R., Bangalore</div>
+          </div>
+        </div>
+      </div>
+      <div class="t-dots" id="tDots"></div>
+      <div class="t-nav">
         <button class="tnbtn" id="tPrev">‹</button>
         <button class="tnbtn" id="tNext">›</button>
       </div>
@@ -215,13 +260,6 @@ body{font-family:"Nunito",sans-serif;background:#eef0f3;color:#1a1a1a;min-height
 <div class="toast" id="toast"></div>
 
 <script>
-// Desktop: restructure into two columns
-function setupDesktop(){
-  if(window.innerWidth < 768) return;
-  const wrap = document.getElementById('mainWrap');
-  // Already ordered, desktop grid handles visually
-}
-
 const PLANS=[{id:"c1",start:1287},{id:"c2",start:974},{id:"c3",start:4421}];
 const TOTAL=PLANS.reduce((s,p)=>s+p.start,0);
 const fmt=n=>n.toLocaleString("en-IN");
